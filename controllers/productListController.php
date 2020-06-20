@@ -28,4 +28,8 @@ if(isset($_GET['category_id'])){
 else{
     $products = getHomeProducts();
 }
+
+/*if (isset($_GET['product']) && $_GET['product']) {
+    $searchProducts = getSearchProducts();
+}*/
 include 'views/product_list.php';

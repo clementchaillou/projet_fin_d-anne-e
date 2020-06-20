@@ -47,6 +47,7 @@ main,
   margin: auto;
   padding: 36px;
 }
+
 .heading {
   width: 100%;
   border-bottom: 1px solid #e5e5e5;
@@ -132,6 +133,9 @@ main,
   background-position: center;
   filter: brightness(90%);
 }*/
+.background-image{
+  filter: brightness(90%);
+}
 .section-description{
   display: flex;
 }
@@ -152,14 +156,14 @@ main,
   margin: 30px 0 0 0;
 }
 /* ----------------- products ------------------*/
-.background-products-image{
+/*.background-products-image{
   width: 100vw;
   height: 800px;
   background: url("../../assets/img/Stanton_Microtech_New_Babbage.jpg");
   background-size: cover;
   background-position: center;
   filter: brightness(90%);
-}
+}*/
 .category{
   display: flex;
   margin: 0 0 36px 0;
@@ -174,22 +178,21 @@ main,
 }
 .section-product{
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 .section-product > figure{
-  width: 50%;
-  padding: 0 10px;
+  width: calc((100% - 210px) * (1 / 2));
+  margin: 20px 0 0 0;
+  border: 1px solid #e0e0e0;
+  padding: 10px;
 }
-/*.section-product > figure:hover{
-  transform: translateY(-30px);
-  transition: 3s;
-}*/
 figure > h2{
-  font-size: 35px;
+  font-size: 30px;
   font-family: Barlow, sans-serif;
   font-weight: bold;
   color: #0E3A73;
-  margin: 20px 0 20px 0;
+  margin: 20px 0 10px 0;
 }
 figure > figcaption{
   color: #0E3A73;
@@ -199,6 +202,32 @@ figure > figcaption{
 }
 .section-product > figure > div{
   margin: 0 0 20px 0;
+}
+.images-product{
+  display: flex;
+}
+.title_product{
+  font-family: Barlow, sans-serif;
+  font-size: 50px;
+  margin: 50px 0 50px 0;
+  color: #0E3A73;
+  text-align: center;
+}
+.description > h2{
+  font-size: 40px;
+  text-align: center;
+  margin: 0 0 50px 0;
+}
+.description > h2:nth-child(3){
+  margin: 50px 0 0 0;
+}
+.description > p{
+  font-size: 20px;
+}
+.description > ul > li{
+  font-size: 20px;
+  text-align: center;
+  margin: 50px 0 0 0;
 }
 /* ------------------ formulaire ---------------*/
 .section-form{
@@ -258,9 +287,11 @@ footer > h3{
 .footer{
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .footer > div{
   text-align: center;
+  width: calc((100% - 210px) * (1 / 4));
 }
 .footer > div > h4{
   font-family: Barlow ,sans-serif;
@@ -341,6 +372,37 @@ footer > h3{
   }
   .trigger:checked + .heading-nav .kids {
     animation: menu 0.3s 1.3s ease-in-out forwards;
+  }
+  .section-description{
+    flex-wrap: wrap;
+  }
+  .section-description > div{
+    margin: 20px 0 0 0;
+  }
+  .section-product > figure{
+    width: calc((100% - 40px) * (1 / 1));
+    margin: 20px;
+  }
+  .section-form{
+    flex-wrap: wrap;
+  }
+  .section-form > .form{
+    width: 100%;
+  }
+  .section-form > .form:last-child{
+    margin: 50px 0 0 0;
+  }
+  input[type=submit]{
+    width: 100%;
+  }
+  .footer > div{
+    width: calc((100% - 40px) * (1 / 2));
+  }
+  .footer > div:nth-child(3){
+    margin: 20px 0 0 0;
+  }
+  .footer > div:nth-child(4){
+    margin: 20px 0 0 0;
   }
 }
 @keyframes menu {

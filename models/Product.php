@@ -3,14 +3,11 @@
 function getHomeProducts()
 {
     $db = dbConnect();
-    $query = $db->query('SELECT * FROM products LIMIT 4');
+    $query = $db->query('SELECT * FROM products');
     $products = $query->fetchAll();
 
     return $products;
 }
-
-
-
 function getProduct($productId)
 {
     $db = dbConnect();
@@ -30,12 +27,21 @@ function getProductsByCategoryId($categoryId)
     return $products;
 }
 
-function getImages($product_id)
+function getImages($productId)
 {
     $db = dbConnect();
-    $query = $db->query('SELECT * FROM product_images WHERE product_id' . $product_id);
+
+    $query = $db->prepare('SELECT * FROM images WHERE product_id = ?');
+    $result = $query->execute( [$productId] );
     $images = $query->fetchAll();
 
     return $images;
 }
+/*function getSearchProducts(){
+    $db = dbConnect();
+    $query = $db->prepare('SELECT * FROM products WHERE name LIKE :name ');
+    $query->bindValue('name', '%' . $_GET['name'] . '%', PDO::PARAM_STR);
+    $query->execute();
 
+    $searchProduct = $query->fetchAll();
+}*/

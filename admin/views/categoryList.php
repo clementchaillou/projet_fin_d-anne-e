@@ -9,7 +9,7 @@
         <?php endforeach; ?>
     </div>
 <?php endif; ?>
-<h1>liste des categories : </h1>
+<h1 class=" d-flex justify-content-center">liste des categories : </h1>
 <div class="content">
     <table class="table">
         <?php foreach($categories as $category): ?>

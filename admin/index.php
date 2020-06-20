@@ -15,7 +15,7 @@ if(isset($_GET['controller'])){
             break;
 
         case 'users' :
-            require 'controllers/loginController.php';
+            require 'controllers/userController.php';
             break;
 
         default :

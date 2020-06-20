@@ -10,10 +10,34 @@
             <a href="#" class="cross"><img src="./assets/img/picto-croix.png" alt="Une croix"></a>
         </div>
         <div>
-            <a href="index.php?page=users&action=form"><i class="far fa-user-circle"></i></a>
-            <i class="fas fa-shopping-cart"></i>
+            <?php if(isset($_SESSION['user'])) :?>
+                <a href="admin"><i class="far fa-user-circle"></i></a>
+                <a href="index.php?page=users&action=disconnect"><i class="fas fa-sign-out-alt"></i></a>
+            <?php else: ?>
+                <a href="index.php?page=users&action=form"><i class="far fa-user-circle"></i></a>
+            <?php endif; ?>
+            <a href="#"><i class="far fa-heart"></i></a>
+            <a href="#"><i class="fas fa-shopping-cart"></i></a>
             <a href="#"><img src="./assets/img/picto-burger.svg" alt="Un burger"></a>
         </div>
     </nav>
+    <!--<div id="app">
+        <form @submit.prevent>
+            <input type="search"
+                   placeholder="Tapez un mot clé"
+                   aria-label="Search"
+                   @input="typing"
+                   @keyup.enter="typing"
+                        v-model="query">
+        </form>
+    </div>-->
 </header>
+
+<?php if(isset($_SESSION['messages'])): ?>
+    <div class="message">
+        <?php foreach($_SESSION['messages'] as $message): ?>
+            <?= $message ?>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>
 

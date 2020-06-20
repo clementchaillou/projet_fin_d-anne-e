@@ -6,7 +6,7 @@
 </head>
 <body>
 <?php require 'partials/header.php'; ?>
-<div class="background-home-image">
+<div class="background-image">
     <img src="./assets/img/Planet-spaceTech-1.jpg" alt="">
 </div>
 <main>

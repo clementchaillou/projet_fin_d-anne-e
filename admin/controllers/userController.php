@@ -1,6 +1,6 @@
 <?php
 
-require('models/Login.php');
+require('models/user.php');
 
 if ($_GET['action'] == 'list') {
 
@@ -34,7 +34,7 @@ if ($_GET['action'] == 'list') {
             $_SESSION['messages'][] = 'Le mot de passe est obligatoire !';
         }
         $_SESSION['old_inputs'] = $_POST;
-        header('Location:Home.php?controller=users&action=new');
+        header('Location:index.php?controller=users&action=new');
         exit;
     } else {
         $resultAdd = addUser($_POST);
@@ -43,7 +43,7 @@ if ($_GET['action'] == 'list') {
         } else {
             $_SESSION['messages'][] = "Erreur lors de l'enregistrement de l'utilisateur... :(";
         }
-        header('Location:Home.php?controller=users&action=list');
+        header('Location:index?controller=users&action=list');
         exit;
     }
 } elseif ($_GET['action'] == 'edit') {
@@ -67,7 +67,7 @@ if ($_GET['action'] == 'list') {
                 $_SESSION['messages'][] = 'Le mot de passe est obligatoire !';
             }
             $_SESSION['old_inputs'] = $_POST;
-            header('Location:Home.php?controller=users&action=edit&id=' . $_GET['id']);
+            header('Location:index.php?controller=users&action=edit&id=' . $_GET['id']);
             exit;
         } else {
 
@@ -77,7 +77,7 @@ if ($_GET['action'] == 'list') {
             } else {
                 $_SESSION['messages'][] = 'Erreur lors de la mise à jour... :(';
             }
-            header('Location:Home.php?controller=users&action=list');
+            header('Location:index.php?controller=users&action=list');
             exit;
         }
     else {
@@ -91,10 +91,10 @@ if ($_GET['action'] == 'list') {
 } elseif ($_GET['action'] == 'delete') {
     if (isset($_GET['id'])) {
         $result = deleteUser($_GET['id']);
-        header('Location:Home.php?controller=users&action=list');
+        header('Location:index.php?controller=users&action=list');
 
     } else {
-        header('Location:Home.php?controller=users&action=list');
+        header('Location:index.php?controller=users&action=list');
         exit;
     }
 }

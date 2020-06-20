@@ -3,13 +3,20 @@ function newUser()
 {
     $db = dbConnect();
         $query = $db->prepare('INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?)');
-        $result = $query->execute([
+        $newUser = $query->execute([
             $_POST['first_name'],
             $_POST['last_name'],
             $_POST['email'],
             hash('md5', $_POST['password'])
         ]);
-        return $result;
+    $_SESSION['user'] = [
+        'username' => $_POST['username'],
+        'club_id' => $_POST['club_id'],
+        'email' => $_POST['email'],
+        'adress' => $_POST['adress'],
+        'is_admin' => 0,
+    ];
+        return $newUser;
 }
 function login()
 {
@@ -20,5 +27,15 @@ function login()
         'email' => $_POST['email']
     ]);
     $user = $query->fetch();
-    return $user;
+
+    if ($user != false) {
+        $_SESSION['user'] = [
+            'id' => $user['id'],
+            'username' => $user['username'],
+            'club_id' => $user['club_id'],
+            'email' => $user['email'],
+            'is_admin' => $user['is_admin'],
+        ];
+        return $user;
+    }
 }

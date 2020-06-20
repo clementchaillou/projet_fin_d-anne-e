@@ -10,7 +10,7 @@
         <?php endforeach; ?>
     </div>
 <?php endif; ?>
-<h1>ici la liste complète des produits </h1>
+<h1 class="d-flex justify-content-center">la liste complète des produits: </h1>
 <div class="content">
     <table class="table">
         <tr>

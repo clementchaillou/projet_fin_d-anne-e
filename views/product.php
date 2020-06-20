@@ -7,17 +7,21 @@
 <body>
 <?php require 'partials/header.php'; ?>
     <main>
-        <div>
-            <h1><?= $selectedProduct['name']; ?></h1
+        <div class="images-product">
+            <?php foreach ($images as $image) :?>
+                <div>
+                    <img src="./assets/img/<?= $image['name'] ?>" alt="">
+                </div>
+            <?php endforeach; ?>
+        </div>
+        <h1 class="title_product"><?= $selectedProduct['name']; ?></h1>
+        <div class="description">
+            <h2>Descriptif</h2>
             <p><?= $selectedProduct['description']; ?></p>
-            <h3><?= $selectedProduct['price']; ?> €</h3>
-            <div>
-                <!--<?php foreach($selectedProduct['images'] as $image): ?>
-                    <div>
-                        <img" src="./assets/img/<?= $image; ?>" alt="<?= $selectedProduct['name']; ?>">
-                    </div>
-                <?php endforeach; ?>-->
-            </div>
+            <h2>Caractéristique</h2>
+            <ul>
+                <li><?= $selectedProduct['feature']; ?></li>
+            </ul>
         </div>
     </main>
 <?php require 'partials/footer.php'?>

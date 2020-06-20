@@ -15,13 +15,13 @@ if ($_GET['action'] == 'form') {
             if (empty(['password'])){
                 $_SESSION['message'][] = 'le champ mot de passe est obligatoire';
             }
-            header('location:index.php?page=users&action=connect');
+            header('location:index.php?page=users&action=form');
             exit;
         }else{
             $newUser = newUser();
             if ($newUser){
-                $_SESSION['message'][] = 'vous êtes connecté';
-                header('location:index.php?page=users&action=connect');
+                $_SESSION['messages'][] = 'Bienvenue'.' '.$_SESSION['user']['username'].'!';
+                header('location:index.php');
                 exit;
             }else{
                 $_SESSION['message'][] = 'erreur lors de l\' inscription';
@@ -36,17 +36,24 @@ if ($_GET['action'] == 'form') {
             if (empty($_POST['email'])){
                 $_SESSION['messages'][] = 'Le champ Email est obligatoire';
             }
+
             if (empty($_POST['password'])){
                 $_SESSION['messages'][] = 'Le champ mot de passe est obligatoire';
             }
-            header('Location:index.php?page=users&action=connect');
+            header('Location:index.php?page=users&action=form');
             exit;
         }else{
             $login = login();
+            if ($login)
+            $_SESSION['messages'][] = 'Bienvenue'.' '.$_SESSION['user']['username'].'!';
+            header('Location:index.php');
+            exit;
         }
     }
 }elseif(isset($_GET['action']) && $_GET['action'] == 'disconnect') {
 
     unset($_SESSION['user']);
     $_SESSION['messages'][] = 'Vous êtes déconnecté !';
+    header('Location:index.php');
+    exit;
 }
