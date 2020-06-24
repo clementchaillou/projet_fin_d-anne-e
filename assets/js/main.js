@@ -1,3 +1,21 @@
+const nav = document.querySelector('.heading');
+
+let scrollPos = 0;
+
+function checkPosition() {
+    let windowY = window.scrollY;
+    if (windowY < scrollPos){
+        nav.classList.add('is-visible');
+        nav.classList.remove('is-hidden');
+    }else {
+        nav.classList.add('is-hidden');
+        nav.classList.remove('is-visible');
+    }
+    scrollPos = windowY;
+}
+addEventListener('scroll', checkPosition);
+
+
 /*const app = new Vue({
     el:'#app',
     created(){

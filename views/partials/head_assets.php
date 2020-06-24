@@ -9,5 +9,5 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./assets/css/style.css">
 <link rel="icon" type="image/png" href="./assets/img/Favicon.png">
-<!--<script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.js"></script>
-<script src="./assets/js/app.js" defer></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.js"></script>-->
+<script src="./assets/js/main.js" defer></script>
