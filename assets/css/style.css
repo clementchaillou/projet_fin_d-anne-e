@@ -54,7 +54,7 @@ main,
   background-color: white;
     position: fixed;
     z-index: 1;
-    transition: 0.5s ease-in;
+    transition: 0.5s cubic-bezier(0.39, 0.58, 0.57, 1);
 }
 .heading-nav{
   display: flex;
@@ -195,6 +195,7 @@ main,
   margin: 20px 0 0 0;
   border: 1px solid #e0e0e0;
   padding: 10px;
+  transition: transform .5s;
 }
 figure > h2{
   font-size: 30px;
@@ -209,12 +210,36 @@ figure > figcaption{
   font-size: 20px;
   font-weight: bold;
 }
+figure::after{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+  content: '';
+  opacity: 0;
+  z-index: -1;
+}
+figure:hover,
+figure:focus{
+  transform: scale3d(1.006, 1.006, 1);
+}
+figure:hover::after,
+figure:focus::after{
+  opacity: 1;
+}
 .section-product > figure > div{
   margin: 0 0 20px 0;
 }
-.images-product{
+.container-img{
   display: flex;
-    padding: 100px 0 0 0;
+  flex-wrap: wrap;
+  padding: 100px 0 0 0;
+}
+.img-secondary{
+  width: 50%;
 }
 .title_product{
   font-family: Barlow, sans-serif;

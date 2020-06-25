@@ -1,3 +1,4 @@
+/* ---------------- Animation header ------------------ */
 const nav = document.querySelector('.heading');
 
 let scrollPos = 0;
@@ -14,7 +15,6 @@ function checkPosition() {
     scrollPos = windowY;
 }
 addEventListener('scroll', checkPosition);
-
 
 /*const app = new Vue({
     el:'#app',
